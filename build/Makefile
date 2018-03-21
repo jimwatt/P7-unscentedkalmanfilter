@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/philip/SDC/P6-extendedkalmanfilter
+CMAKE_SOURCE_DIR = /home/philip/SDC/P7-unscentedkalmanfilter
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/philip/SDC/P6-extendedkalmanfilter/build
+CMAKE_BINARY_DIR = /home/philip/SDC/P7-unscentedkalmanfilter/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/philip/SDC/P6-extendedkalmanfilter/build/CMakeFiles /home/philip/SDC/P6-extendedkalmanfilter/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/philip/SDC/P7-unscentedkalmanfilter/build/CMakeFiles /home/philip/SDC/P7-unscentedkalmanfilter/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/philip/SDC/P6-extendedkalmanfilter/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/philip/SDC/P7-unscentedkalmanfilter/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ExtendedKF
+# Target rules for targets named UnscentedKF
 
 # Build rule for target.
-ExtendedKF: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ExtendedKF
-.PHONY : ExtendedKF
+UnscentedKF: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 UnscentedKF
+.PHONY : UnscentedKF
 
 # fast build rule for target.
-ExtendedKF/fast:
-	$(MAKE) -f CMakeFiles/ExtendedKF.dir/build.make CMakeFiles/ExtendedKF.dir/build
-.PHONY : ExtendedKF/fast
+UnscentedKF/fast:
+	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/build
+.PHONY : UnscentedKF/fast
 
 src/FusionEKF.o: src/FusionEKF.cpp.o
 
@@ -129,7 +129,7 @@ src/FusionEKF.o: src/FusionEKF.cpp.o
 
 # target to build an object file
 src/FusionEKF.cpp.o:
-	$(MAKE) -f CMakeFiles/ExtendedKF.dir/build.make CMakeFiles/ExtendedKF.dir/src/FusionEKF.cpp.o
+	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/src/FusionEKF.cpp.o
 .PHONY : src/FusionEKF.cpp.o
 
 src/FusionEKF.i: src/FusionEKF.cpp.i
@@ -138,7 +138,7 @@ src/FusionEKF.i: src/FusionEKF.cpp.i
 
 # target to preprocess a source file
 src/FusionEKF.cpp.i:
-	$(MAKE) -f CMakeFiles/ExtendedKF.dir/build.make CMakeFiles/ExtendedKF.dir/src/FusionEKF.cpp.i
+	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/src/FusionEKF.cpp.i
 .PHONY : src/FusionEKF.cpp.i
 
 src/FusionEKF.s: src/FusionEKF.cpp.s
@@ -147,35 +147,62 @@ src/FusionEKF.s: src/FusionEKF.cpp.s
 
 # target to generate assembly for a file
 src/FusionEKF.cpp.s:
-	$(MAKE) -f CMakeFiles/ExtendedKF.dir/build.make CMakeFiles/ExtendedKF.dir/src/FusionEKF.cpp.s
+	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/src/FusionEKF.cpp.s
 .PHONY : src/FusionEKF.cpp.s
 
-src/kalman_filter.o: src/kalman_filter.cpp.o
+src/FusionUKF.o: src/FusionUKF.cpp.o
 
-.PHONY : src/kalman_filter.o
+.PHONY : src/FusionUKF.o
 
 # target to build an object file
-src/kalman_filter.cpp.o:
-	$(MAKE) -f CMakeFiles/ExtendedKF.dir/build.make CMakeFiles/ExtendedKF.dir/src/kalman_filter.cpp.o
-.PHONY : src/kalman_filter.cpp.o
+src/FusionUKF.cpp.o:
+	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/src/FusionUKF.cpp.o
+.PHONY : src/FusionUKF.cpp.o
 
-src/kalman_filter.i: src/kalman_filter.cpp.i
+src/FusionUKF.i: src/FusionUKF.cpp.i
 
-.PHONY : src/kalman_filter.i
+.PHONY : src/FusionUKF.i
 
 # target to preprocess a source file
-src/kalman_filter.cpp.i:
-	$(MAKE) -f CMakeFiles/ExtendedKF.dir/build.make CMakeFiles/ExtendedKF.dir/src/kalman_filter.cpp.i
-.PHONY : src/kalman_filter.cpp.i
+src/FusionUKF.cpp.i:
+	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/src/FusionUKF.cpp.i
+.PHONY : src/FusionUKF.cpp.i
 
-src/kalman_filter.s: src/kalman_filter.cpp.s
+src/FusionUKF.s: src/FusionUKF.cpp.s
 
-.PHONY : src/kalman_filter.s
+.PHONY : src/FusionUKF.s
 
 # target to generate assembly for a file
-src/kalman_filter.cpp.s:
-	$(MAKE) -f CMakeFiles/ExtendedKF.dir/build.make CMakeFiles/ExtendedKF.dir/src/kalman_filter.cpp.s
-.PHONY : src/kalman_filter.cpp.s
+src/FusionUKF.cpp.s:
+	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/src/FusionUKF.cpp.s
+.PHONY : src/FusionUKF.cpp.s
+
+src/extended_kalman_filter.o: src/extended_kalman_filter.cpp.o
+
+.PHONY : src/extended_kalman_filter.o
+
+# target to build an object file
+src/extended_kalman_filter.cpp.o:
+	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/src/extended_kalman_filter.cpp.o
+.PHONY : src/extended_kalman_filter.cpp.o
+
+src/extended_kalman_filter.i: src/extended_kalman_filter.cpp.i
+
+.PHONY : src/extended_kalman_filter.i
+
+# target to preprocess a source file
+src/extended_kalman_filter.cpp.i:
+	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/src/extended_kalman_filter.cpp.i
+.PHONY : src/extended_kalman_filter.cpp.i
+
+src/extended_kalman_filter.s: src/extended_kalman_filter.cpp.s
+
+.PHONY : src/extended_kalman_filter.s
+
+# target to generate assembly for a file
+src/extended_kalman_filter.cpp.s:
+	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/src/extended_kalman_filter.cpp.s
+.PHONY : src/extended_kalman_filter.cpp.s
 
 src/main.o: src/main.cpp.o
 
@@ -183,7 +210,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) -f CMakeFiles/ExtendedKF.dir/build.make CMakeFiles/ExtendedKF.dir/src/main.cpp.o
+	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -192,7 +219,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) -f CMakeFiles/ExtendedKF.dir/build.make CMakeFiles/ExtendedKF.dir/src/main.cpp.i
+	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -201,7 +228,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) -f CMakeFiles/ExtendedKF.dir/build.make CMakeFiles/ExtendedKF.dir/src/main.cpp.s
+	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 src/tools.o: src/tools.cpp.o
@@ -210,7 +237,7 @@ src/tools.o: src/tools.cpp.o
 
 # target to build an object file
 src/tools.cpp.o:
-	$(MAKE) -f CMakeFiles/ExtendedKF.dir/build.make CMakeFiles/ExtendedKF.dir/src/tools.cpp.o
+	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/src/tools.cpp.o
 .PHONY : src/tools.cpp.o
 
 src/tools.i: src/tools.cpp.i
@@ -219,7 +246,7 @@ src/tools.i: src/tools.cpp.i
 
 # target to preprocess a source file
 src/tools.cpp.i:
-	$(MAKE) -f CMakeFiles/ExtendedKF.dir/build.make CMakeFiles/ExtendedKF.dir/src/tools.cpp.i
+	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/src/tools.cpp.i
 .PHONY : src/tools.cpp.i
 
 src/tools.s: src/tools.cpp.s
@@ -228,8 +255,62 @@ src/tools.s: src/tools.cpp.s
 
 # target to generate assembly for a file
 src/tools.cpp.s:
-	$(MAKE) -f CMakeFiles/ExtendedKF.dir/build.make CMakeFiles/ExtendedKF.dir/src/tools.cpp.s
+	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/src/tools.cpp.s
 .PHONY : src/tools.cpp.s
+
+src/unscented_kalman_filter.o: src/unscented_kalman_filter.cpp.o
+
+.PHONY : src/unscented_kalman_filter.o
+
+# target to build an object file
+src/unscented_kalman_filter.cpp.o:
+	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/src/unscented_kalman_filter.cpp.o
+.PHONY : src/unscented_kalman_filter.cpp.o
+
+src/unscented_kalman_filter.i: src/unscented_kalman_filter.cpp.i
+
+.PHONY : src/unscented_kalman_filter.i
+
+# target to preprocess a source file
+src/unscented_kalman_filter.cpp.i:
+	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/src/unscented_kalman_filter.cpp.i
+.PHONY : src/unscented_kalman_filter.cpp.i
+
+src/unscented_kalman_filter.s: src/unscented_kalman_filter.cpp.s
+
+.PHONY : src/unscented_kalman_filter.s
+
+# target to generate assembly for a file
+src/unscented_kalman_filter.cpp.s:
+	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/src/unscented_kalman_filter.cpp.s
+.PHONY : src/unscented_kalman_filter.cpp.s
+
+src/utility.o: src/utility.cpp.o
+
+.PHONY : src/utility.o
+
+# target to build an object file
+src/utility.cpp.o:
+	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/src/utility.cpp.o
+.PHONY : src/utility.cpp.o
+
+src/utility.i: src/utility.cpp.i
+
+.PHONY : src/utility.i
+
+# target to preprocess a source file
+src/utility.cpp.i:
+	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/src/utility.cpp.i
+.PHONY : src/utility.cpp.i
+
+src/utility.s: src/utility.cpp.s
+
+.PHONY : src/utility.s
+
+# target to generate assembly for a file
+src/utility.cpp.s:
+	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/src/utility.cpp.s
+.PHONY : src/utility.cpp.s
 
 # Help Target
 help:
@@ -239,19 +320,28 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... ExtendedKF"
+	@echo "... UnscentedKF"
 	@echo "... src/FusionEKF.o"
 	@echo "... src/FusionEKF.i"
 	@echo "... src/FusionEKF.s"
-	@echo "... src/kalman_filter.o"
-	@echo "... src/kalman_filter.i"
-	@echo "... src/kalman_filter.s"
+	@echo "... src/FusionUKF.o"
+	@echo "... src/FusionUKF.i"
+	@echo "... src/FusionUKF.s"
+	@echo "... src/extended_kalman_filter.o"
+	@echo "... src/extended_kalman_filter.i"
+	@echo "... src/extended_kalman_filter.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
 	@echo "... src/tools.o"
 	@echo "... src/tools.i"
 	@echo "... src/tools.s"
+	@echo "... src/unscented_kalman_filter.o"
+	@echo "... src/unscented_kalman_filter.i"
+	@echo "... src/unscented_kalman_filter.s"
+	@echo "... src/utility.o"
+	@echo "... src/utility.i"
+	@echo "... src/utility.s"
 .PHONY : help
 
 

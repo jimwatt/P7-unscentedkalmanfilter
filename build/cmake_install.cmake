@@ -1,4 +1,4 @@
-# Install script for directory: /home/philip/SDC/P6-extendedkalmanfilter
+# Install script for directory: /home/philip/SDC/P7-unscentedkalmanfilter
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/philip/SDC/P6-extendedkalmanfilter/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/philip/SDC/P7-unscentedkalmanfilter/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
