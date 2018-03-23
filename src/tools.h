@@ -1,5 +1,4 @@
-#ifndef TOOLS_H_
-#define TOOLS_H_
+#pragma once
 #include <vector>
 #include "Eigen/Dense"
 
@@ -9,15 +8,6 @@ using namespace std;
 
 class Tools {
 public:
-  /**
-  * Constructor.
-  */
-  Tools();
-
-  /**
-  * Destructor.
-  */
-  virtual ~Tools();
 
   /**
   * A helper method to calculate RMSE.
@@ -31,4 +21,3 @@ public:
 
 };
 
-#endif /* TOOLS_H_ */

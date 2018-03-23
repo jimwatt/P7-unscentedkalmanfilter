@@ -1,9 +1,9 @@
-#include "kalman_filter.h"
+#include "extended_kalman_filter.h"
 
 using Eigen::MatrixXd;
 using Eigen::VectorXd;
 
-namespace kalman_filter {
+namespace extended_kalman_filter {
 
 // Update x and P, given the motion model and uncertainty
 void Predict(VectorXd &x, MatrixXd &P, const MatrixXd &F, const MatrixXd &Q) {
@@ -25,6 +25,6 @@ void Update(VectorXd &x, MatrixXd &P, const MatrixXd &H, const MatrixXd &R, cons
 
 }
 
-}   // namespace kalman_filter
+}   // namespace extended_kalman_filter
 
 

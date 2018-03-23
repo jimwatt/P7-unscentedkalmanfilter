@@ -3,12 +3,12 @@
 #include "FusionKF.h"
 #include "measurement_package.h"
 #include "Eigen/Dense"
-#include "extended_kalman_filter.h"
+#include "unscented_kalman_filter.h"
 
-class FusionEKF : public FusionKF {
+class FusionUKF : public FusionKF {
 public:
 
-  FusionEKF();
+  FusionUKF();
 
   // update the state with the given measurement
   void ProcessMeasurement(const MeasurementPackage &measurement_pack);
@@ -19,7 +19,6 @@ private:
 
   // previous timestamp
   long long previous_timestamp_;
-
 
   // Measurement noise
   Eigen::MatrixXd R_laser_;

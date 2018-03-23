@@ -1,4 +1,4 @@
-#include "FusionEKF.h"
+#include "FusionUKF.h"
 #include "utility.h"
 #include "Eigen/Dense"
 #include <iostream>
@@ -8,11 +8,9 @@ using Eigen::MatrixXd;
 using Eigen::VectorXd;
 using std::vector;
 
-
-
 // The fusion EKF engine.  
 // This object maintains the state of the target, and can update it given a nwew measurement
-FusionEKF::FusionEKF() {
+FusionUKF::FusionUKF() {
   // Has the state been initialized yet?
   is_initialized_ = false;
 
@@ -41,7 +39,7 @@ FusionEKF::FusionEKF() {
 
 
 // Given a new measurement (either radar or lidar), process the measurement and update the state
-void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
+void FusionUKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
 
   // Get the timestamp of the measurememnt
   const long long timestamp = measurement_pack.timestamp_;
@@ -89,7 +87,7 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
   MatrixXd Q = utility::makeProcessNoiseCovariance(dt_s,s2ax_,s2ay_);
 
   // Call the predict function to push x_ and P_ forward to the current time
-  extended_kalman_filter::Predict(x_,P_,F,Q);
+  unscented_kalman_filter::Predict(x_,P_,F,Q);
 
   /*****************************************************************************
    *  Update
@@ -99,11 +97,11 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
   if (measurement_pack.sensor_type_ == MeasurementPackage::RADAR) {
     // process a radar measurement (have to compute the Jacobian for nonlinear measurement function)
     const MatrixXd H_radar = utility::CalculateJacobian(x_); 
-    extended_kalman_filter::Update(x_,P_,H_radar,R_radar_,utility::zminushx_radar(z,x_));
+    unscented_kalman_filter::Update(x_,P_,H_radar,R_radar_,utility::zminushx_radar(z,x_));
   } 
   else if (measurement_pack.sensor_type_ == MeasurementPackage::LASER) { 
     // process a laser measurement (measurement function is linear)
-    extended_kalman_filter::Update(x_,P_,H_laser_,R_laser_,utility::zminushx_laser(z,x_));
+    unscented_kalman_filter::Update(x_,P_,H_laser_,R_laser_,utility::zminushx_laser(z,x_));
   }
 
   // udpate the clock
