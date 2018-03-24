@@ -105,33 +105,9 @@ CMakeFiles/UnscentedKF.dir/src/tools.cpp.o.provides: CMakeFiles/UnscentedKF.dir/
 CMakeFiles/UnscentedKF.dir/src/tools.cpp.o.provides.build: CMakeFiles/UnscentedKF.dir/src/tools.cpp.o
 
 
-CMakeFiles/UnscentedKF.dir/src/FusionEKF.cpp.o: CMakeFiles/UnscentedKF.dir/flags.make
-CMakeFiles/UnscentedKF.dir/src/FusionEKF.cpp.o: ../src/FusionEKF.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/philip/SDC/P7-unscentedkalmanfilter/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/UnscentedKF.dir/src/FusionEKF.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/UnscentedKF.dir/src/FusionEKF.cpp.o -c /home/philip/SDC/P7-unscentedkalmanfilter/src/FusionEKF.cpp
-
-CMakeFiles/UnscentedKF.dir/src/FusionEKF.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/UnscentedKF.dir/src/FusionEKF.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/philip/SDC/P7-unscentedkalmanfilter/src/FusionEKF.cpp > CMakeFiles/UnscentedKF.dir/src/FusionEKF.cpp.i
-
-CMakeFiles/UnscentedKF.dir/src/FusionEKF.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/UnscentedKF.dir/src/FusionEKF.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/philip/SDC/P7-unscentedkalmanfilter/src/FusionEKF.cpp -o CMakeFiles/UnscentedKF.dir/src/FusionEKF.cpp.s
-
-CMakeFiles/UnscentedKF.dir/src/FusionEKF.cpp.o.requires:
-
-.PHONY : CMakeFiles/UnscentedKF.dir/src/FusionEKF.cpp.o.requires
-
-CMakeFiles/UnscentedKF.dir/src/FusionEKF.cpp.o.provides: CMakeFiles/UnscentedKF.dir/src/FusionEKF.cpp.o.requires
-	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/src/FusionEKF.cpp.o.provides.build
-.PHONY : CMakeFiles/UnscentedKF.dir/src/FusionEKF.cpp.o.provides
-
-CMakeFiles/UnscentedKF.dir/src/FusionEKF.cpp.o.provides.build: CMakeFiles/UnscentedKF.dir/src/FusionEKF.cpp.o
-
-
 CMakeFiles/UnscentedKF.dir/src/FusionUKF.cpp.o: CMakeFiles/UnscentedKF.dir/flags.make
 CMakeFiles/UnscentedKF.dir/src/FusionUKF.cpp.o: ../src/FusionUKF.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/philip/SDC/P7-unscentedkalmanfilter/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/UnscentedKF.dir/src/FusionUKF.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/philip/SDC/P7-unscentedkalmanfilter/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/UnscentedKF.dir/src/FusionUKF.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/UnscentedKF.dir/src/FusionUKF.cpp.o -c /home/philip/SDC/P7-unscentedkalmanfilter/src/FusionUKF.cpp
 
 CMakeFiles/UnscentedKF.dir/src/FusionUKF.cpp.i: cmake_force
@@ -153,33 +129,9 @@ CMakeFiles/UnscentedKF.dir/src/FusionUKF.cpp.o.provides: CMakeFiles/UnscentedKF.
 CMakeFiles/UnscentedKF.dir/src/FusionUKF.cpp.o.provides.build: CMakeFiles/UnscentedKF.dir/src/FusionUKF.cpp.o
 
 
-CMakeFiles/UnscentedKF.dir/src/extended_kalman_filter.cpp.o: CMakeFiles/UnscentedKF.dir/flags.make
-CMakeFiles/UnscentedKF.dir/src/extended_kalman_filter.cpp.o: ../src/extended_kalman_filter.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/philip/SDC/P7-unscentedkalmanfilter/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/UnscentedKF.dir/src/extended_kalman_filter.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/UnscentedKF.dir/src/extended_kalman_filter.cpp.o -c /home/philip/SDC/P7-unscentedkalmanfilter/src/extended_kalman_filter.cpp
-
-CMakeFiles/UnscentedKF.dir/src/extended_kalman_filter.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/UnscentedKF.dir/src/extended_kalman_filter.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/philip/SDC/P7-unscentedkalmanfilter/src/extended_kalman_filter.cpp > CMakeFiles/UnscentedKF.dir/src/extended_kalman_filter.cpp.i
-
-CMakeFiles/UnscentedKF.dir/src/extended_kalman_filter.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/UnscentedKF.dir/src/extended_kalman_filter.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/philip/SDC/P7-unscentedkalmanfilter/src/extended_kalman_filter.cpp -o CMakeFiles/UnscentedKF.dir/src/extended_kalman_filter.cpp.s
-
-CMakeFiles/UnscentedKF.dir/src/extended_kalman_filter.cpp.o.requires:
-
-.PHONY : CMakeFiles/UnscentedKF.dir/src/extended_kalman_filter.cpp.o.requires
-
-CMakeFiles/UnscentedKF.dir/src/extended_kalman_filter.cpp.o.provides: CMakeFiles/UnscentedKF.dir/src/extended_kalman_filter.cpp.o.requires
-	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/src/extended_kalman_filter.cpp.o.provides.build
-.PHONY : CMakeFiles/UnscentedKF.dir/src/extended_kalman_filter.cpp.o.provides
-
-CMakeFiles/UnscentedKF.dir/src/extended_kalman_filter.cpp.o.provides.build: CMakeFiles/UnscentedKF.dir/src/extended_kalman_filter.cpp.o
-
-
 CMakeFiles/UnscentedKF.dir/src/unscented_kalman_filter.cpp.o: CMakeFiles/UnscentedKF.dir/flags.make
 CMakeFiles/UnscentedKF.dir/src/unscented_kalman_filter.cpp.o: ../src/unscented_kalman_filter.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/philip/SDC/P7-unscentedkalmanfilter/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/UnscentedKF.dir/src/unscented_kalman_filter.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/philip/SDC/P7-unscentedkalmanfilter/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/UnscentedKF.dir/src/unscented_kalman_filter.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/UnscentedKF.dir/src/unscented_kalman_filter.cpp.o -c /home/philip/SDC/P7-unscentedkalmanfilter/src/unscented_kalman_filter.cpp
 
 CMakeFiles/UnscentedKF.dir/src/unscented_kalman_filter.cpp.i: cmake_force
@@ -203,7 +155,7 @@ CMakeFiles/UnscentedKF.dir/src/unscented_kalman_filter.cpp.o.provides.build: CMa
 
 CMakeFiles/UnscentedKF.dir/src/utility.cpp.o: CMakeFiles/UnscentedKF.dir/flags.make
 CMakeFiles/UnscentedKF.dir/src/utility.cpp.o: ../src/utility.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/philip/SDC/P7-unscentedkalmanfilter/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/UnscentedKF.dir/src/utility.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/philip/SDC/P7-unscentedkalmanfilter/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/UnscentedKF.dir/src/utility.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/UnscentedKF.dir/src/utility.cpp.o -c /home/philip/SDC/P7-unscentedkalmanfilter/src/utility.cpp
 
 CMakeFiles/UnscentedKF.dir/src/utility.cpp.i: cmake_force
@@ -229,9 +181,7 @@ CMakeFiles/UnscentedKF.dir/src/utility.cpp.o.provides.build: CMakeFiles/Unscente
 UnscentedKF_OBJECTS = \
 "CMakeFiles/UnscentedKF.dir/src/main.cpp.o" \
 "CMakeFiles/UnscentedKF.dir/src/tools.cpp.o" \
-"CMakeFiles/UnscentedKF.dir/src/FusionEKF.cpp.o" \
 "CMakeFiles/UnscentedKF.dir/src/FusionUKF.cpp.o" \
-"CMakeFiles/UnscentedKF.dir/src/extended_kalman_filter.cpp.o" \
 "CMakeFiles/UnscentedKF.dir/src/unscented_kalman_filter.cpp.o" \
 "CMakeFiles/UnscentedKF.dir/src/utility.cpp.o"
 
@@ -240,14 +190,12 @@ UnscentedKF_EXTERNAL_OBJECTS =
 
 UnscentedKF: CMakeFiles/UnscentedKF.dir/src/main.cpp.o
 UnscentedKF: CMakeFiles/UnscentedKF.dir/src/tools.cpp.o
-UnscentedKF: CMakeFiles/UnscentedKF.dir/src/FusionEKF.cpp.o
 UnscentedKF: CMakeFiles/UnscentedKF.dir/src/FusionUKF.cpp.o
-UnscentedKF: CMakeFiles/UnscentedKF.dir/src/extended_kalman_filter.cpp.o
 UnscentedKF: CMakeFiles/UnscentedKF.dir/src/unscented_kalman_filter.cpp.o
 UnscentedKF: CMakeFiles/UnscentedKF.dir/src/utility.cpp.o
 UnscentedKF: CMakeFiles/UnscentedKF.dir/build.make
 UnscentedKF: CMakeFiles/UnscentedKF.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/philip/SDC/P7-unscentedkalmanfilter/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable UnscentedKF"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/philip/SDC/P7-unscentedkalmanfilter/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable UnscentedKF"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/UnscentedKF.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -257,9 +205,7 @@ CMakeFiles/UnscentedKF.dir/build: UnscentedKF
 
 CMakeFiles/UnscentedKF.dir/requires: CMakeFiles/UnscentedKF.dir/src/main.cpp.o.requires
 CMakeFiles/UnscentedKF.dir/requires: CMakeFiles/UnscentedKF.dir/src/tools.cpp.o.requires
-CMakeFiles/UnscentedKF.dir/requires: CMakeFiles/UnscentedKF.dir/src/FusionEKF.cpp.o.requires
 CMakeFiles/UnscentedKF.dir/requires: CMakeFiles/UnscentedKF.dir/src/FusionUKF.cpp.o.requires
-CMakeFiles/UnscentedKF.dir/requires: CMakeFiles/UnscentedKF.dir/src/extended_kalman_filter.cpp.o.requires
 CMakeFiles/UnscentedKF.dir/requires: CMakeFiles/UnscentedKF.dir/src/unscented_kalman_filter.cpp.o.requires
 CMakeFiles/UnscentedKF.dir/requires: CMakeFiles/UnscentedKF.dir/src/utility.cpp.o.requires
 

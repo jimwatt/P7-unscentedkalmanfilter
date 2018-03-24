@@ -123,33 +123,6 @@ UnscentedKF/fast:
 	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/build
 .PHONY : UnscentedKF/fast
 
-src/FusionEKF.o: src/FusionEKF.cpp.o
-
-.PHONY : src/FusionEKF.o
-
-# target to build an object file
-src/FusionEKF.cpp.o:
-	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/src/FusionEKF.cpp.o
-.PHONY : src/FusionEKF.cpp.o
-
-src/FusionEKF.i: src/FusionEKF.cpp.i
-
-.PHONY : src/FusionEKF.i
-
-# target to preprocess a source file
-src/FusionEKF.cpp.i:
-	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/src/FusionEKF.cpp.i
-.PHONY : src/FusionEKF.cpp.i
-
-src/FusionEKF.s: src/FusionEKF.cpp.s
-
-.PHONY : src/FusionEKF.s
-
-# target to generate assembly for a file
-src/FusionEKF.cpp.s:
-	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/src/FusionEKF.cpp.s
-.PHONY : src/FusionEKF.cpp.s
-
 src/FusionUKF.o: src/FusionUKF.cpp.o
 
 .PHONY : src/FusionUKF.o
@@ -176,33 +149,6 @@ src/FusionUKF.s: src/FusionUKF.cpp.s
 src/FusionUKF.cpp.s:
 	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/src/FusionUKF.cpp.s
 .PHONY : src/FusionUKF.cpp.s
-
-src/extended_kalman_filter.o: src/extended_kalman_filter.cpp.o
-
-.PHONY : src/extended_kalman_filter.o
-
-# target to build an object file
-src/extended_kalman_filter.cpp.o:
-	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/src/extended_kalman_filter.cpp.o
-.PHONY : src/extended_kalman_filter.cpp.o
-
-src/extended_kalman_filter.i: src/extended_kalman_filter.cpp.i
-
-.PHONY : src/extended_kalman_filter.i
-
-# target to preprocess a source file
-src/extended_kalman_filter.cpp.i:
-	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/src/extended_kalman_filter.cpp.i
-.PHONY : src/extended_kalman_filter.cpp.i
-
-src/extended_kalman_filter.s: src/extended_kalman_filter.cpp.s
-
-.PHONY : src/extended_kalman_filter.s
-
-# target to generate assembly for a file
-src/extended_kalman_filter.cpp.s:
-	$(MAKE) -f CMakeFiles/UnscentedKF.dir/build.make CMakeFiles/UnscentedKF.dir/src/extended_kalman_filter.cpp.s
-.PHONY : src/extended_kalman_filter.cpp.s
 
 src/main.o: src/main.cpp.o
 
@@ -321,15 +267,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... UnscentedKF"
-	@echo "... src/FusionEKF.o"
-	@echo "... src/FusionEKF.i"
-	@echo "... src/FusionEKF.s"
 	@echo "... src/FusionUKF.o"
 	@echo "... src/FusionUKF.i"
 	@echo "... src/FusionUKF.s"
-	@echo "... src/extended_kalman_filter.o"
-	@echo "... src/extended_kalman_filter.i"
-	@echo "... src/extended_kalman_filter.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

@@ -3,7 +3,6 @@
 #include "json.hpp"
 #include <math.h>
 #include "FusionKF.h"
-#include "FusionEKF.h"
 #include "FusionUKF.h"
 #include "tools.h"
 
@@ -116,10 +115,12 @@ int main()
 
     	  VectorXd estimate(4);
 
-    	  double p_x = fusionKF->x_(0);
-    	  double p_y = fusionKF->x_(1);
-    	  double v1  = fusionKF->x_(2);
-    	  double v2 = fusionKF->x_(3);
+    	  double p_x = fusionKF->get_x();
+    	  double p_y = fusionKF->get_y();
+    	  double v1  = fusionKF->get_vx();
+    	  double v2 = fusionKF->get_vy();
+
+        
 
     	  estimate(0) = p_x;
     	  estimate(1) = p_y;

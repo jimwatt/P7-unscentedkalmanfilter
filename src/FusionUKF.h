@@ -13,6 +13,11 @@ public:
   // update the state with the given measurement
   void ProcessMeasurement(const MeasurementPackage &measurement_pack);
 
+  double get_x();
+  double get_y();
+  double get_vx();
+  double get_vy();
+
 private:
   // check whether the tracking toolbox was initialized or not (first measurement)
   bool is_initialized_;
@@ -27,8 +32,8 @@ private:
   // Laser measurement function
   Eigen::MatrixXd H_laser_;
 
-  // Process noise
-  double s2ax_;
-  double s2ay_;
+  Eigen::VectorXd process_noise_std_;
+  Eigen::VectorXd radar_meas_noise_std_;
+  Eigen::VectorXd laser_meas_noise_std_;
 };
 

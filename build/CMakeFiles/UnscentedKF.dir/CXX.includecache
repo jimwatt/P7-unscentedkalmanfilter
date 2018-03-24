@@ -1016,26 +1016,6 @@ Eigen/src/Core/util/MKL_support.h
 
 /home/philip/SDC/P7-unscentedkalmanfilter/src/Eigen/src/plugins/MatrixCwiseUnaryOps.h
 
-/home/philip/SDC/P7-unscentedkalmanfilter/src/FusionEKF.cpp
-FusionEKF.h
-/home/philip/SDC/P7-unscentedkalmanfilter/src/FusionEKF.h
-utility.h
-/home/philip/SDC/P7-unscentedkalmanfilter/src/utility.h
-Eigen/Dense
-/home/philip/SDC/P7-unscentedkalmanfilter/src/Eigen/Dense
-iostream
--
-
-/home/philip/SDC/P7-unscentedkalmanfilter/src/FusionEKF.h
-FusionKF.h
-/home/philip/SDC/P7-unscentedkalmanfilter/src/FusionKF.h
-measurement_package.h
-/home/philip/SDC/P7-unscentedkalmanfilter/src/measurement_package.h
-Eigen/Dense
-/home/philip/SDC/P7-unscentedkalmanfilter/src/Eigen/Dense
-extended_kalman_filter.h
-/home/philip/SDC/P7-unscentedkalmanfilter/src/extended_kalman_filter.h
-
 /home/philip/SDC/P7-unscentedkalmanfilter/src/FusionKF.h
 measurement_package.h
 /home/philip/SDC/P7-unscentedkalmanfilter/src/measurement_package.h
@@ -1047,6 +1027,8 @@ FusionUKF.h
 /home/philip/SDC/P7-unscentedkalmanfilter/src/FusionUKF.h
 utility.h
 /home/philip/SDC/P7-unscentedkalmanfilter/src/utility.h
+unscented_kalman_filter.h
+/home/philip/SDC/P7-unscentedkalmanfilter/src/unscented_kalman_filter.h
 Eigen/Dense
 /home/philip/SDC/P7-unscentedkalmanfilter/src/Eigen/Dense
 iostream
@@ -1061,14 +1043,6 @@ Eigen/Dense
 /home/philip/SDC/P7-unscentedkalmanfilter/src/Eigen/Dense
 unscented_kalman_filter.h
 /home/philip/SDC/P7-unscentedkalmanfilter/src/unscented_kalman_filter.h
-
-/home/philip/SDC/P7-unscentedkalmanfilter/src/extended_kalman_filter.cpp
-extended_kalman_filter.h
-/home/philip/SDC/P7-unscentedkalmanfilter/src/extended_kalman_filter.h
-
-/home/philip/SDC/P7-unscentedkalmanfilter/src/extended_kalman_filter.h
-Eigen/Dense
-/home/philip/SDC/P7-unscentedkalmanfilter/src/Eigen/Dense
 
 /home/philip/SDC/P7-unscentedkalmanfilter/src/json.hpp
 algorithm
@@ -1137,8 +1111,6 @@ math.h
 -
 FusionKF.h
 /home/philip/SDC/P7-unscentedkalmanfilter/src/FusionKF.h
-FusionEKF.h
-/home/philip/SDC/P7-unscentedkalmanfilter/src/FusionEKF.h
 FusionUKF.h
 /home/philip/SDC/P7-unscentedkalmanfilter/src/FusionUKF.h
 tools.h
@@ -1163,6 +1135,8 @@ Eigen/Dense
 /home/philip/SDC/P7-unscentedkalmanfilter/src/unscented_kalman_filter.cpp
 unscented_kalman_filter.h
 /home/philip/SDC/P7-unscentedkalmanfilter/src/unscented_kalman_filter.h
+iostream
+-
 
 /home/philip/SDC/P7-unscentedkalmanfilter/src/unscented_kalman_filter.h
 Eigen/Dense
