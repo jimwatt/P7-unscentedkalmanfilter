@@ -47,7 +47,7 @@ FusionUKF::FusionUKF() {
 
   process_noise_std_ = VectorXd::Zero(2);
   process_noise_std_[0] = 1.5;
-  process_noise_std_[1] = 0.57;
+  process_noise_std_[1] = 0.6;
 
 
 
@@ -148,15 +148,15 @@ void FusionUKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
 
 }
 
-  double FusionUKF::get_x() {
+  double FusionUKF::get_x() const {
     return x_[0];
   }
-  double FusionUKF::get_y() {
+  double FusionUKF::get_y() const {
     return x_[1];
   }
-  double FusionUKF::get_vx(){
+  double FusionUKF::get_vx() const {
     return x_[2] * cos(x_[3]);
   }
-  double FusionUKF::get_vy() {
+  double FusionUKF::get_vy() const {
     return x_[2] * sin(x_[3]);
   }

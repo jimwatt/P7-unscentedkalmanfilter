@@ -5,6 +5,8 @@
 #include "Eigen/Dense"
 #include "unscented_kalman_filter.h"
 
+// The Unscented Kalman Filter object that stores and updates the state
+
 class FusionUKF : public FusionKF {
 public:
 
@@ -13,10 +15,10 @@ public:
   // update the state with the given measurement
   void ProcessMeasurement(const MeasurementPackage &measurement_pack);
 
-  double get_x();
-  double get_y();
-  double get_vx();
-  double get_vy();
+  double get_x() const;
+  double get_y() const;
+  double get_vx() const;
+  double get_vy() const;
 
 private:
   // check whether the tracking toolbox was initialized or not (first measurement)
@@ -24,15 +26,9 @@ private:
 
   // previous timestamp
   long long previous_timestamp_;
-
-  // Measurement noise
-  Eigen::MatrixXd R_laser_;
-  Eigen::MatrixXd R_radar_;
   
-  // Laser measurement function
-  Eigen::MatrixXd H_laser_;
-
   Eigen::VectorXd process_noise_std_;
+
   Eigen::VectorXd radar_meas_noise_std_;
   Eigen::VectorXd laser_meas_noise_std_;
 };
