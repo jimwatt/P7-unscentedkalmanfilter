@@ -1,6 +1,6 @@
-# Sensor Fusion with the Extended Kalman Filter
+# Sensor Fusion with the Unscented Kalman Filter
 
-This project is in conjunction with the Udacity Self-Driving Car course.  In particular, the goal of this project is to fuse simulated radar and laser measurements to estimate the position of a cyclist.
+This project is in conjunction with the Udacity Self-Driving Car course.  In particular, the goal of this project is to use the Unscented Kalman Filter to fuse simulated radar and laser measurements and estimate the position of a cyclist.
 
 * More detail about the approach is provided in [writeup.md](./writeup.md).
 
@@ -18,7 +18,7 @@ uWS		(Socket for interfacing with Udacity simulator)
 1. Clone this project from GitHub:
 
 ```
-git clone https://github.com/jimwatt/P6-extendedkalmanfilter.git
+git clone https://github.com/jimwatt/P7-unscentedkalmanfilter.git
 ```
 
 2. Change into the `build` directory, and compile with `CMake`.
@@ -32,8 +32,8 @@ git clone https://github.com/jimwatt/P6-extendedkalmanfilter.git
 ## Running the Code
 
 * Run the executable from the `build` directory:
-  ```./ExtendedKF```
-* The executable will wait until measurements are provided by the simulator.
+  ```./UnscentedKF```
+* The executable will wait until measurements are provided by the simulator through the uWS socket.
 
 
 
@@ -51,6 +51,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 This project is a submission to the Udacity Self-Driving Car nanodegree:
 
 * ```
-  https://github.com/udacity/CarND-Extended-Kalman-Filter-Project.git
+  https://github.com/udacity/CarND-Unscented-Kalman-Filter-Project.git
   ```
 
