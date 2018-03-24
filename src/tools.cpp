@@ -21,6 +21,9 @@ VectorXd Tools::CalculateRMSE(const vector<VectorXd> &estimations,
 	for(unsigned int i=0; i < estimations.size(); ++i){
 		VectorXd residual = estimations[i] - ground_truth[i];
 
+		while (residual[3]> M_PI) residual[3]-=2.*M_PI;
+  		while (residual[3]<-M_PI) residual[3]+=2.*M_PI;
+
 		//coefficient-wise multiplication
 		residual = residual.array()*residual.array();
 		rmse += residual;

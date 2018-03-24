@@ -2,6 +2,8 @@
 
 #include "Eigen/Dense"
 
+// Uses the UKF to update the given state.  These functions use no global variables, and do not maintain state.
+
 namespace unscented_kalman_filter {
 
 void UpdateState(const double delta_t, const Eigen::VectorXd& process_noise_std, 

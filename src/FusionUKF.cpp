@@ -1,5 +1,4 @@
 #include "FusionUKF.h"
-#include "utility.h"
 #include "unscented_kalman_filter.h"
 #include "Eigen/Dense"
 #include <iostream>
@@ -31,29 +30,21 @@ VectorXd laser_measurement_function(const VectorXd& x) {
   return x.segment(0,2);
 }
 
+
 // The fusion EKF engine.  
 // This object maintains the state of the target, and can update it given a nwew measurement
 FusionUKF::FusionUKF() {
   // Has the state been initialized yet?
   is_initialized_ = false;
 
-  // Keep track of teh time of the most recent measurement update
+  // Keep track of the time of the most recent measurement update
   previous_timestamp_ = 0;
 
-
-
-
-
-
+  // process noise 
   process_noise_std_ = VectorXd::Zero(2);
   process_noise_std_[0] = 1.5;
   process_noise_std_[1] = 0.6;
 
-
-
-
-
-////////////////////////////////////////////////
   radar_meas_noise_std_ = VectorXd::Zero(3);
   radar_meas_noise_std_[0] = 0.3;
   radar_meas_noise_std_[1] = 0.03;
@@ -95,6 +86,7 @@ void FusionUKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
       R(0,0) =  radar_meas_noise_std_[0]*radar_meas_noise_std_[0];
       R(1,1) = radar_meas_noise_std_[1]*radar_meas_noise_std_[1];
 
+      // map the measuremement covariance to the state space
       P_.block(0,0,2,2) = JacobianH * R * JacobianH.transpose();
 
       P_(2,2) = 10.0;
@@ -133,14 +125,17 @@ void FusionUKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
   // unpack the measureement data
   const VectorXd z = measurement_pack.raw_measurements_;
   if (measurement_pack.sensor_type_ == MeasurementPackage::RADAR) {
-    // process a radar measurement (have to compute the Jacobian for nonlinear measurement function)
-    // Call the predict function to push x_ and P_ forward to the current time
-    unscented_kalman_filter::UpdateState(dt_s,process_noise_std_, radar_meas_noise_std_, z, radar_measurement_function, x_, P_);
+    // process a radar measurement 
+    unscented_kalman_filter::UpdateState(dt_s,process_noise_std_, radar_meas_noise_std_, 
+      z, radar_measurement_function, 
+      x_, P_);
 
   } 
   else if (measurement_pack.sensor_type_ == MeasurementPackage::LASER) { 
-    // process a laser measurement (measurement function is linear)
-    unscented_kalman_filter::UpdateState(dt_s,process_noise_std_, laser_meas_noise_std_, z, laser_measurement_function, x_, P_);
+    // process a laser measurement
+    unscented_kalman_filter::UpdateState(dt_s,process_noise_std_, laser_meas_noise_std_, 
+      z, laser_measurement_function, 
+      x_, P_);
   }
 
   // udpate the clock

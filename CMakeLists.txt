@@ -7,7 +7,7 @@ add_definitions(-std=c++11)
 set(CXX_FLAGS "-Wall")
 set(CMAKE_CXX_FLAGS, "${CXX_FLAGS}")
 
-set(sources src/main.cpp src/tools.cpp src/FusionUKF.cpp src/unscented_kalman_filter.cpp src/utility.cpp src/tools.h src/FusionUKF.h src/FusionKF.h src/unscented_kalman_filter.h src/utility.h)
+set(sources src/main.cpp src/tools.cpp src/FusionUKF.cpp src/unscented_kalman_filter.cpp src/tools.h src/FusionUKF.h src/FusionKF.h src/unscented_kalman_filter.h)
 
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin") 

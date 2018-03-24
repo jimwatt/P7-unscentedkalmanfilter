@@ -7,21 +7,22 @@ using Eigen::VectorXd;
 namespace unscented_kalman_filter {
 
 
-	void PredictMeanAndCovariance(const MatrixXd& Xsig_pred, const VectorXd& weights, const double lmbda, VectorXd& x, MatrixXd& P) {
+// Compute mean and ocavariance of sigma points
+void PredictMeanAndCovariance(const MatrixXd& Xsig_pred, const VectorXd& weights, VectorXd& x, MatrixXd& P) {
 
   //set augmented dimension
-		const int n_x = x.size();
-		const int n_aug = (weights.size() - 1)/2;
+	const int n_x = x.size();
+	const int n_sigmapoints = weights.size();
 
   //predicted state mean
 	x.fill(0.0);
-  for (int i = 0; i < 2 * n_aug + 1; i++) {  //iterate over sigma points
+  for (int i = 0; i < n_sigmapoints; i++) {  //iterate over sigma points
   	x = x + weights[i] * Xsig_pred.col(i);
   }
 
   //predicted state covariance matrix
   P.fill(0.0);
-  for (int i = 0; i < 2 * n_aug + 1; i++) {  //iterate over sigma points
+  for (int i = 0; i < n_sigmapoints; i++) {  //iterate over sigma points
   	VectorXd x_diff = Xsig_pred.col(i) - x;
   	while (x_diff(3)> M_PI) x_diff(3)-=2.*M_PI;
   	while (x_diff(3)<-M_PI) x_diff(3)+=2.*M_PI;
@@ -31,6 +32,7 @@ namespace unscented_kalman_filter {
 }
 
 
+// Predict given sigma points forward by the process model
 MatrixXd SigmaPointPrediction(const int n_x, const double delta_t, const MatrixXd& Xsig_aug) {
 
   //set augmented dimension
@@ -41,7 +43,6 @@ MatrixXd SigmaPointPrediction(const int n_x, const double delta_t, const MatrixX
 
   //predict sigma points
 	for (int i = 0; i< n_sigmapts; i++) {
-    //extract values for better readability
 		const double p_x = Xsig_aug(0,i);
 		const double p_y = Xsig_aug(1,i);
 		const double v = Xsig_aug(2,i);
@@ -52,8 +53,6 @@ MatrixXd SigmaPointPrediction(const int n_x, const double delta_t, const MatrixX
 
     //predicted state values
 		double px_p, py_p;
-
-    //avoid division by zero
 		if (fabs(yawd) > 0.001) {
 			px_p = p_x + v/yawd * ( sin (yaw + yawd*delta_t) - sin(yaw));
 			py_p = p_y + v/yawd * ( cos(yaw) - cos(yaw+yawd*delta_t) );
@@ -75,7 +74,7 @@ MatrixXd SigmaPointPrediction(const int n_x, const double delta_t, const MatrixX
 
 }
 
-
+// Generate augmented sigma points
 MatrixXd AugmentedSigmaPoints(const VectorXd& process_noise_std, const VectorXd& x, const MatrixXd& P, const double lambda) {
 
   //set state dimension
@@ -108,8 +107,9 @@ MatrixXd AugmentedSigmaPoints(const VectorXd& process_noise_std, const VectorXd&
 }
 
 
-
-void PredictMeasurement(const VectorXd& meas_noise_std, const MatrixXd& Xsig_pred, const VectorXd& weights, const double lambda,
+// Given the predicted sigma points, and the measurement function, predict what the measurement will be
+void PredictMeasurement(const VectorXd& meas_noise_std, const MatrixXd& Xsig_pred, 
+	const VectorXd& weights, const double lambda,
 	VectorXd measurement_function(const VectorXd& x),
 	VectorXd& z_out, MatrixXd& S_out, MatrixXd& Zsig) {
 
@@ -158,16 +158,18 @@ void PredictMeasurement(const VectorXd& meas_noise_std, const MatrixXd& Xsig_pre
 
 }
 
-
-void ApplyKalmanGain(const MatrixXd& Xsig_pred, const VectorXd& z, const MatrixXd& Zsig, const VectorXd& z_pred, const MatrixXd& S, const VectorXd& weights, VectorXd& x, MatrixXd& P) {
+// Apply the Kalman gain to update the state
+void ApplyKalmanGain(const MatrixXd& Xsig_pred, const VectorXd& z, 
+	const MatrixXd& Zsig, const VectorXd& z_pred, const MatrixXd& S, const VectorXd& weights, 
+	VectorXd& x, MatrixXd& P) {
 
 	const int n_x = x.size();
 	const int n_z = Zsig.rows();
-	const int n_aug = (Zsig.cols()-1)/2;
+	const int n_sigmapoints = Zsig.cols();
 
+	
 	MatrixXd Tc = MatrixXd::Zero(n_x, n_z);
-
-	for (int i = 0; i < 2 * n_aug + 1; i++) {  //2n+1 simga points
+	for (int i = 0; i < n_sigmapoints; i++) {  //2n+1 simga points
 	//residual
 		VectorXd z_diff = Zsig.col(i) - z_pred;
 		while (z_diff(1)> M_PI) z_diff(1)-=2.*M_PI;
@@ -192,6 +194,8 @@ void ApplyKalmanGain(const MatrixXd& Xsig_pred, const VectorXd& z, const MatrixX
 
 }
 
+
+// Generate weights for given number of points and lambda value
 VectorXd generateWeights(const int n, const double lambda) {
 	VectorXd weights = VectorXd::Zero(2*n+1);
 	weights(0) = lambda/(lambda+n);
@@ -202,6 +206,7 @@ VectorXd generateWeights(const int n, const double lambda) {
 }
 
 
+// The main function that performs prediction and measuremnt update using the UKF
 void UpdateState(const double delta_t, 
 	const VectorXd& process_noise_std, 
 	const VectorXd& meas_noise_std, 
@@ -222,25 +227,23 @@ void UpdateState(const double delta_t,
 	// Define Weights
 	const VectorXd weights = generateWeights(n_aug,lambda);
 
-	  // Generate sigma points
-	  const MatrixXd Xsig_aug = AugmentedSigmaPoints(process_noise_std, x, P, lambda);
+	// Generate sigma points
+	const MatrixXd Xsig_aug = AugmentedSigmaPoints(process_noise_std, x, P, lambda);
 
-	  // Predict the sigma points
-	  const MatrixXd Xsig_pred = SigmaPointPrediction(n_x, delta_t, Xsig_aug);
+	// Predict the sigma points
+	const MatrixXd Xsig_pred = SigmaPointPrediction(n_x, delta_t, Xsig_aug);
 
-	  // Predict the mean and covariance
-	  PredictMeanAndCovariance(Xsig_pred, weights, lambda, x, P);
+	// Predict the mean and covariance
+	PredictMeanAndCovariance(Xsig_pred, weights, x, P);
 
-	  // Predict the Measurement
-	  MatrixXd Zsig = MatrixXd::Zero(n_z, 2 * n_aug + 1);
-	  VectorXd z_pred = VectorXd::Zero(n_z);
-	  MatrixXd S = MatrixXd::Zero(n_z,n_z);
-	  PredictMeasurement(meas_noise_std, Xsig_pred, weights, lambda, measurement_function, z_pred, S, Zsig);
+	// Predict the Measurement
+	MatrixXd Zsig = MatrixXd::Zero(n_z, 2 * n_aug + 1);
+	VectorXd z_pred = VectorXd::Zero(n_z);
+	MatrixXd S = MatrixXd::Zero(n_z,n_z);
+	PredictMeasurement(meas_noise_std, Xsig_pred, weights, lambda, measurement_function, z_pred, S, Zsig);
 
-	  // Update the State
-	  ApplyKalmanGain(Xsig_pred,z,Zsig,z_pred,S,weights,x,P);
-
-
+	// Update the State
+	ApplyKalmanGain(Xsig_pred,z,Zsig,z_pred,S,weights,x,P);
 
 }
 
